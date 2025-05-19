@@ -2,7 +2,7 @@
 
 // General usage constants
 inline constexpr float EPSILON = .000001f;
-
+inline constexpr float PI = 3.1415926535f;
 // Window constants
 inline constexpr int SCR_WIDTH = 1280;
 inline constexpr int SCR_HEIGHT = 720;
@@ -25,6 +25,21 @@ inline constexpr float PARTICLE_RADIUS_VIS = 0.1f;
 
 // Simulation constants
 inline constexpr unsigned int PARTICLES_COUNT = 10000;
-inline static constexpr float TIME_STEP = .01f;   
-inline static constexpr float GRAVITY = 9.81f;
-inline static constexpr float VELOCITY_COLLISION_DAMPING = .8f;
+inline static constexpr float TIME_STEP = .005f;   
+inline static constexpr float GRAVITY = 0.0;//981f;
+inline static constexpr float VELOCITY_COLLISION_DAMPING = .95f;
+inline static constexpr float NEIGH_RADIUS = 1.1f;
+inline static constexpr float NEIGH_RADIUS_SQUARED = NEAR_CAMERA*NEIGH_RADIUS;
+inline static constexpr float NEIGH_RADIUS_BIQ = NEIGH_RADIUS_SQUARED*NEIGH_RADIUS_SQUARED;
+inline static constexpr float REST_DENSITY = 1.5f;
+inline static constexpr float STIFFNESS_PRESSURE = 10;
+inline static constexpr float MASS = 1.0f;
+
+// Bounding BOX
+inline constexpr float XMIN = -2.0f;
+inline constexpr float YMIN = 2.0f;
+inline constexpr float ZMIN = -2.0f;
+inline constexpr float XMAX = 2.0f;
+inline constexpr float YMAX = 4.0f;
+inline constexpr float ZMAX = 2.0f;
+

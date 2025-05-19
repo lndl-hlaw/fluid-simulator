@@ -9,6 +9,7 @@ private:
     glInterop interop;
     cudaVec3 particlesPositions;
     cudaVec3 particlesVelocities;
+    float* densities;
 public:
     Simulator(graphics::points_mesh& particleMesh);
 

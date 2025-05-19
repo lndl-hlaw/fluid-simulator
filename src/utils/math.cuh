@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
 #include <cstdio>
+#include <vector_functions.h>
 
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
@@ -28,6 +29,11 @@ __host__ __device__ inline float3 operator-(float3 a, float3 b)
 __host__ __device__ inline float3 operator/(float3 v, float a)
 {
 	return make_float3(v.x / a, v.y / a, v.z / a);
+}
+
+__host__ __device__ inline float3 operator+=(float3& v, float3 a) {
+    v = v + a;
+    return v;
 }
 
 __host__ __device__ inline bool isEmpty(float3 v)

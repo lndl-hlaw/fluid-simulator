@@ -14,7 +14,7 @@ class sphereSpriteMesh : public points_mesh
 {
 public:
     sphereSpriteMesh(std::vector<Vec3> &&vertices);
-    void draw(const graphics::sphereSpriteShader& shader, glm::mat4 view, glm::mat4 projection, float radius) const;
+    void draw(const graphics::sphereSpriteShader& shader, glm::mat4 view, glm::mat4 projection, float radius, glm::vec3 minAABB, glm::vec3 maxAABB) const;
 };
 
 class texture_mesh : public elements_mesh {

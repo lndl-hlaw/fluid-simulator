@@ -21,10 +21,12 @@ int main()
     glEnable(GL_PROGRAM_POINT_SIZE);
     glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
+    
+    glm::vec3 aabbMin = {XMIN, YMIN, ZMIN};
+    glm::vec3 aabbMax = {XMAX, YMAX, ZMAX};
     graphics::XYplane_mesh xyPlane;
     graphics::xyShader xyShader;
-    auto particles = utils::generateRandomPoints(PARTICLES_COUNT, {-1, 0, -1}, {1, 1, 1});
+    auto particles = utils::generateRandomPoints(PARTICLES_COUNT, aabbMin, aabbMax);
     graphics::sphereSpriteMesh sprites(std::move(particles));
     graphics::sphereSpriteShader spriteShader;
 
@@ -45,8 +47,8 @@ int main()
 		glm::mat4 view = camera.GetViewMatrix();
 		glm::mat4 projection = camera.getProjectionMatrix();
 
-        // xyPlane.draw(xyShader, view, projection);
-        sprites.draw(spriteShader, view, projection, PARTICLE_RADIUS_VIS);
+        xyPlane.draw(xyShader, view, projection);
+        sprites.draw(spriteShader, view, projection, PARTICLE_RADIUS_VIS, aabbMin, aabbMax);
 
         windowController.swapBuffers();
     }

@@ -38,11 +38,13 @@ graphics::sphereSpriteMesh::sphereSpriteMesh(std::vector<Vec3> &&vertices):
     points_mesh::setupMesh(); 
 }
 
-void graphics::sphereSpriteMesh::draw(const graphics::sphereSpriteShader& shader, glm::mat4 view, glm::mat4 projection, float radius) const {
+void graphics::sphereSpriteMesh::draw(const graphics::sphereSpriteShader& shader, glm::mat4 view, glm::mat4 projection, float radius, glm::vec3 minAABB, glm::vec3 maxAABB) const {
     shader.use();
     shader.setMatrix("view", view);
     shader.setMatrix("projection", projection);
     shader.setFloat("radius", radius);
+    shader.setVector("aabbMin", minAABB);
+    shader.setVector("aabbMax", maxAABB);
     this->points_mesh::draw(&shader);
     
 }

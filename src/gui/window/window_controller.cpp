@@ -9,7 +9,7 @@ namespace window
 {
 	void window_size_callback(GLFWwindow* window, int width, int height);
 	
-	graphics::camera window::window_controller::camera = graphics::camera({ 0,1,3 }, { 0,0,1 });
+	graphics::camera window::window_controller::camera = graphics::camera({ 0,3,4 }, { 0,0,1 });
 
 	void window_controller::handleInput()
 	{

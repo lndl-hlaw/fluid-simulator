@@ -2,8 +2,9 @@
 out vec4 FragColor;
 
 in vec3 worldCenter;
+in vec3 vColor;
 
-uniform vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0)); // Directional light (in world or view space)
+uniform vec3 lightDir = normalize(vec3(1.0, -1.0, 1.0)); // Directional light (in world or view space)
 
 void main() {
     // Convert point coordinate from [0, 1] to [-1, 1]
@@ -18,8 +19,7 @@ void main() {
 
     // Fake lighting using a fixed light direction
     float diffuse = max(dot(normal, normalize(lightDir)), 0.0);
-    vec3 baseColor = vec3(0.2, 0.8, 1.0);
-    vec3 color = baseColor * diffuse;
+    vec3 color = vColor * diffuse;
 
     FragColor = vec4(color, 1.0);
 }
