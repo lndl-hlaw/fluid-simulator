@@ -17,16 +17,16 @@ public:
 
 class texShader : public shader {
 public:
-    texShader() : shader("shaders/tex_shader.vs", "shaders/tex_shader.fs") {}
+    texShader() : shader("shaders/tex_shader.vert", "shaders/tex_shader.frag") {}
 };
 
 class xyShader : public shader {
 public:
-    xyShader() : shader("shaders/xyplane_shader.vs", "shaders/xyplane_shader.fs") {}
+    xyShader() : shader("shaders/xyplane_shader.vert", "shaders/xyplane_shader.frag") {}
 };
 
 class sphereSpriteShader : public shader {
 public:
-    sphereSpriteShader() : shader("shaders/sphere_sprite_shader.vs", "shaders/sphere_sprite_shader.fs") {}
+    sphereSpriteShader() : shader("shaders/sphere_sprite_shader.vert", "shaders/sphere_sprite_shader.frag") {}
 };
 } // namespace graphics
